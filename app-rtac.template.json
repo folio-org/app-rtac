@@ -1,0 +1,22 @@
+{
+  "name": "${project.name}",
+  "version": "${project.version}",
+  "description": "${project.description}",
+  "platform": "complete",
+  "dependencies": [
+    {
+      "name": "app-acquisitions",
+      "version": "^1.0.0-SNAPSHOT"
+    }
+  ],
+  "modules": [
+    {
+      "name": "mod-rtac",
+      "version": "latest"
+    },
+    {
+      "name": "edge-rtac",
+      "version": "latest"
+    }
+  ]
+}
