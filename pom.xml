@@ -7,10 +7,11 @@
   <artifactId>app-rtac</artifactId>
   <groupId>org.folio</groupId>
   <description>Application Descriptor Repository for the FOLIO RTAC application</description>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <folio-application-generator.version>1.2.0-SNAPSHOT</folio-application-generator.version>
     <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
   </properties>
 
@@ -19,7 +20,7 @@
       <plugin>
         <groupId>org.folio</groupId>
         <artifactId>folio-application-generator</artifactId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>${folio-application-generator.version}</version>
         <executions>
           <execution>
             <goals>
