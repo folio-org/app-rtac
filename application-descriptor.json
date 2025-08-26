@@ -1,6 +1,6 @@
 {
   "name": "app-rtac",
-  "version": "1.1.0-SNAPSHOT.100000000000001",
+  "version": "1.1.0-SNAPSHOT.100100000000111",
   "description": "Application Descriptor Repository for the FOLIO RTAC application",
   "platform": "complete",
   "dependencies": [
@@ -12,11 +12,12 @@
   "modules": [
     {
       "name": "mod-rtac",
-      "version": "3.9.0-SNAPSHOT.114"
+      "version": "3.9.0-SNAPSHOT.116"
     },
     {
       "name": "edge-rtac",
       "version": "2.10.0-SNAPSHOT.114"
     }
-  ]
+  ],
+  "uiModules": []
 }
