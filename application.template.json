@@ -8,6 +8,11 @@
       "name": "app-acquisitions",
       "version": "^1.2.0-SNAPSHOT",
       "preRelease": "only"
+    },
+    {
+      "name": "app-inventory",
+      "version": "^1.0.0-SNAPSHOT",
+      "preRelease": "only"
     }
   ],
   "modules": [
