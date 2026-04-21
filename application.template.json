@@ -6,25 +6,25 @@
   "dependencies": [
     {
       "name": "app-acquisitions",
-      "version": "^1.2.0-SNAPSHOT",
-      "preRelease": "only"
+      "version": "^VERSION_^1.2.0-SNAPSHOT",
+      "preRelease": "false"
     },
     {
       "name": "app-inventory",
-      "version": "^1.0.0-SNAPSHOT",
-      "preRelease": "only"
+      "version": "^VERSION_^1.0.0-SNAPSHOT",
+      "preRelease": "false"
     }
   ],
   "modules": [
     {
       "name": "mod-rtac",
-        "version": "latest",
-        "preRelease": "only"
+      "version": "^VERSION_latest",
+      "preRelease": "false"
     },
     {
       "name": "edge-rtac",
-        "version": "latest",
-        "preRelease": "only"
+      "version": "^VERSION_latest",
+      "preRelease": "false"
     }
   ]
 }
