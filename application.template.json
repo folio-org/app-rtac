@@ -18,12 +18,12 @@
   "modules": [
     {
       "name": "mod-rtac",
-      "version": "^VERSION_latest",
+      "version": "~3.9.0",
       "preRelease": "false"
     },
     {
       "name": "edge-rtac",
-      "version": "^VERSION_latest",
+      "version": "~3.1.0",
       "preRelease": "false"
     }
   ]
