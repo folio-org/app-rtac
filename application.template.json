@@ -6,12 +6,12 @@
   "dependencies": [
     {
       "name": "app-acquisitions",
-      "version": "^VERSION_^1.2.0-SNAPSHOT",
+      "version": "~2.0.1",
       "preRelease": "false"
     },
     {
       "name": "app-inventory",
-      "version": "^VERSION_^1.0.0-SNAPSHOT",
+      "version": "~1.0.0",
       "preRelease": "false"
     }
   ],
