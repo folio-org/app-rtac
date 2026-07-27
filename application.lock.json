@@ -1,16 +1,16 @@
 {
-  "id" : "app-rtac-1.2.0-SNAPSHOT.100200000010983",
+  "id" : "app-rtac-1.2.0-SNAPSHOT.100200000011029",
   "name" : "app-rtac",
-  "version" : "1.2.0-SNAPSHOT.100200000010983",
+  "version" : "1.2.0-SNAPSHOT.100200000011029",
   "description" : "Application Descriptor Repository for the FOLIO RTAC application",
   "modules" : [ {
-    "id" : "edge-rtac-3.2.0-SNAPSHOT.2041",
-    "name" : "edge-rtac",
-    "version" : "3.2.0-SNAPSHOT.2041"
-  }, {
-    "id" : "mod-rtac-3.10.0-SNAPSHOT.2042",
+    "id" : "mod-rtac-3.10.0-SNAPSHOT.3b1fac6",
     "name" : "mod-rtac",
-    "version" : "3.10.0-SNAPSHOT.2042"
+    "version" : "3.10.0-SNAPSHOT.3b1fac6"
+  }, {
+    "id" : "edge-rtac-3.2.0-SNAPSHOT.49fc93d",
+    "name" : "edge-rtac",
+    "version" : "3.2.0-SNAPSHOT.49fc93d"
   } ],
   "uiModules" : [ ],
   "dependencies" : [ {
@@ -23,8 +23,27 @@
     "preRelease" : "only"
   } ],
   "moduleDescriptors" : [ {
-    "id" : "mod-rtac-3.10.0-SNAPSHOT.2042",
+    "id" : "mod-rtac-3.10.0-SNAPSHOT.3b1fac6",
     "name" : "Real Time Availability Check Module",
+    "provides" : [ {
+      "id" : "rtac",
+      "version" : "1.5",
+      "handlers" : [ {
+        "methods" : [ "GET" ],
+        "pathPattern" : "/rtac/{id}",
+        "permissionsRequired" : [ "rtac.holdings.item.get" ],
+        "modulePermissions" : [ "circulation-storage.loans.collection.get", "inventory-storage.inventory-hierarchy.items-and-holdings.collection.post", "circulation.requests.collection.get", "orders.pieces.collection.get", "mod-settings.entries.collection.get", "mod-settings.global.read.mod-rtac" ]
+      } ]
+    }, {
+      "id" : "rtac-batch",
+      "version" : "1.2",
+      "handlers" : [ {
+        "methods" : [ "POST" ],
+        "pathPattern" : "/rtac-batch",
+        "permissionsRequired" : [ "rtac.batch.post" ],
+        "modulePermissions" : [ "circulation-storage.loans.collection.get", "inventory-storage.inventory-hierarchy.items-and-holdings.collection.post", "circulation.requests.collection.get", "orders.pieces.collection.get", "user-tenants.collection.get", "search.facets.collection.get", "mod-settings.entries.collection.get", "mod-settings.global.read.mod-rtac" ]
+      } ]
+    } ],
     "requires" : [ {
       "id" : "inventory-hierarchy",
       "version" : "0.8"
@@ -46,25 +65,6 @@
     }, {
       "id" : "settings",
       "version" : "1.2"
-    } ],
-    "provides" : [ {
-      "id" : "rtac",
-      "version" : "1.5",
-      "handlers" : [ {
-        "methods" : [ "GET" ],
-        "pathPattern" : "/rtac/{id}",
-        "permissionsRequired" : [ "rtac.holdings.item.get" ],
-        "modulePermissions" : [ "circulation-storage.loans.collection.get", "inventory-storage.inventory-hierarchy.items-and-holdings.collection.post", "circulation.requests.collection.get", "orders.pieces.collection.get", "mod-settings.entries.collection.get", "mod-settings.global.read.mod-rtac" ]
-      } ]
-    }, {
-      "id" : "rtac-batch",
-      "version" : "1.2",
-      "handlers" : [ {
-        "methods" : [ "POST" ],
-        "pathPattern" : "/rtac-batch",
-        "permissionsRequired" : [ "rtac.batch.post" ],
-        "modulePermissions" : [ "circulation-storage.loans.collection.get", "inventory-storage.inventory-hierarchy.items-and-holdings.collection.post", "circulation.requests.collection.get", "orders.pieces.collection.get", "user-tenants.collection.get", "search.facets.collection.get", "mod-settings.entries.collection.get", "mod-settings.global.read.mod-rtac" ]
-      } ]
     } ],
     "permissionSets" : [ {
       "permissionName" : "mod-settings.global.read.mod-rtac",
@@ -89,12 +89,8 @@
       "subPermissions" : [ "rtac.batch.post", "rtac.holdings.item.get" ]
     } ],
     "launchDescriptor" : {
-      "dockerImage" : "folioci/mod-rtac:3.10.0-SNAPSHOT.2042",
-      "dockerPull" : true,
-      "env" : [ {
-        "name" : "JAVA_OPTIONS",
-        "value" : "-XX:MaxRAMPercentage=66.0"
-      } ],
+      "dockerImage" : "mod-rtac:3.10.0-SNAPSHOT.3b1fac6",
+      "dockerPull" : false,
       "dockerArgs" : {
         "HostConfig" : {
           "Memory" : 357913941,
@@ -104,11 +100,16 @@
             } ]
           }
         }
-      }
+      },
+      "env" : [ {
+        "name" : "JAVA_OPTIONS",
+        "value" : "-XX:MaxRAMPercentage=66.0"
+      } ]
     }
   }, {
-    "id" : "edge-rtac-3.2.0-SNAPSHOT.2041",
+    "id" : "edge-rtac-3.2.0-SNAPSHOT.49fc93d",
     "name" : "Real Time Availability Check Edge API",
+    "provides" : [ ],
     "requires" : [ {
       "id" : "rtac-batch",
       "version" : "1.2"
@@ -116,11 +117,20 @@
       "id" : "login",
       "version" : "7.3"
     } ],
-    "provides" : [ ],
     "permissionSets" : [ ],
     "launchDescriptor" : {
-      "dockerImage" : "folioci/edge-rtac:3.2.0-SNAPSHOT.2041",
-      "dockerPull" : true,
+      "dockerImage" : "edge-rtac-3.2.0-SNAPSHOT.49fc93d",
+      "dockerPull" : false,
+      "dockerArgs" : {
+        "HostConfig" : {
+          "Memory" : 268435456,
+          "PortBindings" : {
+            "8081/tcp" : [ {
+              "HostPort" : "%p"
+            } ]
+          }
+        }
+      },
       "env" : [ {
         "name" : "JAVA_OPTIONS",
         "value" : "-XX:MaxRAMPercentage=66.0"
@@ -139,17 +149,7 @@
       }, {
         "name" : "token_cache_capacity",
         "value" : "100"
-      } ],
-      "dockerArgs" : {
-        "HostConfig" : {
-          "Memory" : 268435456,
-          "PortBindings" : {
-            "8081/tcp" : [ {
-              "HostPort" : "%p"
-            } ]
-          }
-        }
-      }
+      } ]
     }
   } ],
   "uiModuleDescriptors" : [ ]
