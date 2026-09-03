@@ -1,12 +1,12 @@
 {
-  "id" : "app-rtac-1.2.0-SNAPSHOT.100200000011135",
+  "id" : "app-rtac-1.2.0-SNAPSHOT.100200000011851",
   "name" : "app-rtac",
-  "version" : "1.2.0-SNAPSHOT.100200000011135",
+  "version" : "1.2.0-SNAPSHOT.100200000011851",
   "description" : "Application Descriptor Repository for the FOLIO RTAC application",
   "modules" : [ {
-    "id" : "mod-rtac-3.10.0-SNAPSHOT.2047",
+    "id" : "mod-rtac-3.10.0-SNAPSHOT.2054",
     "name" : "mod-rtac",
-    "version" : "3.10.0-SNAPSHOT.2047"
+    "version" : "3.10.0-SNAPSHOT.2054"
   }, {
     "id" : "edge-rtac-3.2.0-SNAPSHOT.2048",
     "name" : "edge-rtac",
@@ -23,7 +23,7 @@
     "preRelease" : "only"
   } ],
   "moduleDescriptors" : [ {
-    "id" : "mod-rtac-3.10.0-SNAPSHOT.2047",
+    "id" : "mod-rtac-3.10.0-SNAPSHOT.2054",
     "name" : "Real Time Availability Check Module",
     "requires" : [ {
       "id" : "inventory-hierarchy",
@@ -89,7 +89,7 @@
       "subPermissions" : [ "rtac.batch.post", "rtac.holdings.item.get" ]
     } ],
     "launchDescriptor" : {
-      "dockerImage" : "folioci/mod-rtac:3.10.0-SNAPSHOT.2047",
+      "dockerImage" : "folioci/mod-rtac:3.10.0-SNAPSHOT.2054",
       "dockerPull" : true,
       "env" : [ {
         "name" : "JAVA_OPTIONS",
