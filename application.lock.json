@@ -1,16 +1,16 @@
 {
-  "id" : "app-rtac-1.1.3",
+  "id" : "app-rtac-1.1.4",
   "name" : "app-rtac",
-  "version" : "1.1.3",
+  "version" : "1.1.4",
   "description" : "Application Descriptor Repository for the FOLIO RTAC application",
   "modules" : [ {
+    "id" : "edge-rtac-3.1.2",
+    "name" : "edge-rtac",
+    "version" : "3.1.2"
+  }, {
     "id" : "mod-rtac-3.9.2",
     "name" : "mod-rtac",
     "version" : "3.9.2"
-  }, {
-    "id" : "edge-rtac-3.1.1",
-    "name" : "edge-rtac",
-    "version" : "3.1.1"
   } ],
   "uiModules" : [ ],
   "dependencies" : [ {
@@ -107,7 +107,7 @@
       }
     }
   }, {
-    "id" : "edge-rtac-3.1.1",
+    "id" : "edge-rtac-3.1.2",
     "name" : "Real Time Availability Check Edge API",
     "requires" : [ {
       "id" : "rtac-batch",
@@ -119,7 +119,7 @@
     "provides" : [ ],
     "permissionSets" : [ ],
     "launchDescriptor" : {
-      "dockerImage" : "folioorg/edge-rtac:3.1.1",
+      "dockerImage" : "folioorg/edge-rtac:3.1.2",
       "dockerPull" : true,
       "env" : [ {
         "name" : "JAVA_OPTIONS",
